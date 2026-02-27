@@ -51,13 +51,13 @@ subprojects {
         }
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
+            sourceCompatibility = JavaVersion.VERSION_17
+            targetCompatibility = JavaVersion.VERSION_17
         }
 
         tasks.withType<KotlinJvmCompile> {
             compilerOptions {
-                jvmTarget.set(JvmTarget.JVM_1_8) // Required
+                jvmTarget.set(JvmTarget.JVM_17) // Required
                 freeCompilerArgs.addAll(
                     "-Xno-call-assertions",
                     "-Xno-param-assertions",
@@ -72,7 +72,7 @@ subprojects {
         val implementation by configurations
 
         // Stubs for all cloudstream classes
-        cloudstream("com.lagradost:cloudstream3:pre-release")
+        cloudstream("com.lagradost:cloudstream3:4.0.0")
 
         // These dependencies can include any of those which are added by the app,
         // but you don't need to include any of them if you don't need them.
